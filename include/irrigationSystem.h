@@ -9,7 +9,7 @@
 #include "DateGestion.h"
 
 class IrrigationSystem {
-    // Add class members and methods here
+
     public :
         IrrigationSystem();
         void irrigate();

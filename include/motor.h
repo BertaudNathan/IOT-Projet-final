@@ -6,12 +6,10 @@
 class Motor {
 
 public:
-    // Constructor
+
     Motor(int speed, int forwardPin, int reversePin, int bridgePin);
     Motor();
-    // Destructor
-    ~Motor();
-    // Methods
+
     void forward(int delayValue);
     void backward(int delayValue);
     void stop();

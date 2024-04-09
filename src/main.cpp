@@ -1,13 +1,14 @@
 #include "irrigationSystem.h"
+#include <Adafruit_Sensor.h>
 
-IrrigationSystem system;
+IrrigationSystem mySystem;
 
 void setup() {
-  system = IrrigationSystem();
+  mySystem = IrrigationSystem();
 }
 
 void loop() {
-  system.irrigate();
+  mySystem.irrigate();
   return;
 }
 
