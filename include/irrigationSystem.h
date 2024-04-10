@@ -5,25 +5,24 @@
 #include <Arduino.h>
 #include "humidityCaptor.h"
 #include <iostream>
-#include <ctime>
-#include "DateGestion.h"
+
+enum Status { WAITING, IRRIGATING };
 
 class IrrigationSystem {
 
     public :
         IrrigationSystem();
-        void irrigate();
+        bool irrigate();
         Motor getMotor();
         HumidityCaptor getHumidityCaptor();
-        time_t getLastIrrigationDate();
-        DateGestion getDateGestion();
+        void start();
 
         
 
     private :
+        Status status;
         Motor motor;
         HumidityCaptor humidityCaptor;
-        DateGestion dateGestion;
 
 
 
