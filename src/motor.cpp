@@ -4,7 +4,7 @@
 
 Motor::Motor()
 {
-    this->speed = 80;
+    this->speed = 18;  // the perimeter of the motor is 1 cm. if the power is 18, the motor will move the 15 cm between water and flower pot in 10 seconds (value tried and tested)
     this->forwardPin = 3;
     this->reversePin = 5;
     this->bridgePin = 2;
@@ -27,18 +27,18 @@ Motor::Motor(int speed, int forwardPin, int reversePin, int bridgePin)
 void Motor::forward(int delayValue)
 {
     digitalWrite(bridgePin, HIGH);
-    digitalWrite(forwardPin, HIGH);
-    digitalWrite(reversePin, LOW);
-    analogWrite(bridgePin, speed);
+    analogWrite(reversePin, LOW);
+    analogWrite(forwardPin, speed);
     delay(delayValue);
+    digitalWrite(bridgePin, LOW);
 }
 void Motor::backward(int delayValue)
 {
     digitalWrite(bridgePin, HIGH);
-    digitalWrite(forwardPin, LOW);
-    digitalWrite(reversePin, HIGH);
-    analogWrite(bridgePin, speed);
+    analogWrite(forwardPin, LOW);
+    analogWrite(reversePin, speed);
     delay(delayValue);
+    digitalWrite(bridgePin, LOW);
 }
 
 void Motor::stop()
