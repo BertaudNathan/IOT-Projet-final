@@ -26,12 +26,12 @@ void IrrigationSystem::start()
         {
             status = IRRIGATING;
         }
-        esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR*3600*24*3);  //sleep for three day
     }
     if (status == IRRIGATING)
     {
         motor.stop();
         status = WAITING;
+        esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR*3600*24*3);  //sleep for three day
     }
 }
 

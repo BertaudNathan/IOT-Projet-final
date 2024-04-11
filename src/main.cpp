@@ -9,6 +9,5 @@ void setup() {
 
 void loop() {
   mySystem.irrigate();
-  return;
 }
 
