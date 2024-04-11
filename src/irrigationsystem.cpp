@@ -3,13 +3,21 @@
 #define TIME_TO_SLEEP  1
 // Rest of the code...
 
+
+/**
+ * @brief Construct a new Irrigation System object.
+ */
 IrrigationSystem::IrrigationSystem()
 {
-    motor = Motor(255, 3, 5, 2);
+    motor = Motor(18, 3, 5, 2);
     humidityCaptor = HumidityCaptor(A10);
     status = WAITING;
 }
 
+
+/**
+ * @brief Start the irrigation system.
+ */
 void IrrigationSystem::start()
 {
     if (status == WAITING)
@@ -27,6 +35,12 @@ void IrrigationSystem::start()
     }
 }
 
+/**
+ * @brief Irrigate the plant if the humidity is below 60%.
+ * 
+ * @return true if the plant is irrigated.
+ * @return false if the plant is not irrigated.
+ */
 bool IrrigationSystem::irrigate()
 {
 
@@ -39,11 +53,23 @@ bool IrrigationSystem::irrigate()
     }
     return false;
 }
+
+/**
+ * @brief Get the Motor object.
+ * 
+ * @return Motor the motor object.
+ */
 Motor IrrigationSystem::getMotor()
 {
     return motor;
 }
 
+
+/**
+ * @brief Get the Humidity Captor object.
+ * 
+ * @return HumidityCaptor the humidity captor object.
+ */
 HumidityCaptor IrrigationSystem::getHumidityCaptor()
 {
     return humidityCaptor;
