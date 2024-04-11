@@ -1,6 +1,5 @@
 #include <irrigationSystem.h>
-#define uS_TO_S_FACTOR 1000000
-#define TIME_TO_SLEEP  1
+#define TIME_TO_SLEEP  3
 // Rest of the code...
 
 
@@ -31,7 +30,8 @@ void IrrigationSystem::start()
     {
         motor.stop();
         status = WAITING;
-        esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR*3600*24*3);  //sleep for three day
+        unsigned long long sleepTime = TIME_TO_SLEEP * 1000000ULL * 3600ULL * 24ULL;  // sleep for three days in microseconds
+        esp_deep_sleep(sleepTime);
     }
 }
 
